@@ -1,24 +1,26 @@
-$(document).ready(function () {
+$(document).ready(function () {	
 	function appendHeading(heading) {
 		$('.heading-select').append(`<option value="${heading}">${heading}</option>`);
 		$('.heading-form-select').append(`<option value="${heading}">${heading}</option>`);
 		$('.main-content').append(`
-            <div class="heading-container">
+            <section class="heading-container">
                 <h2>${heading}
                  <button type="button" class="close1" aria-label="Close"><span aria-hidden="true">x</span></button>
                </h2>
-            </div>
+            </section>
         `);
 	}
 	// subheading append
 	function appendSubheading(heading, subheading) {
-		$('.main-content').find(`h2:contains("${heading}")`).after(`
-            <div class="subheading-container">
-                <h3>${subheading}		
-                </h3>
-            </div>
+		$('.main-content').find(`h2:contains("${heading}")`).append(`
+            <section class="subheading-container">
+                <h3>${subheading}</h3>
+            </section>
         `);
 	}
+	// $('.main-content').sortable({
+    //     handle: 'section'
+    // });
 	// Form submission handler for heading
 	$('.heading-form').on('submit', function (e) {
 		e.preventDefault();
@@ -59,7 +61,6 @@ $(document).ready(function () {
 			});
 		}
 	});
-
 	$('.subheading-form').on('submit', function (e) {
 		e.preventDefault();
 		var selectedHeading = $('.heading-select').val();
@@ -81,23 +82,30 @@ $(document).ready(function () {
 			// console.log(newSubheading, "Subheading added");
 		}
 	});
-
-	//  heading subheading change in form
 	$('.heading-form-select').on('change', function () {
-		var selectedHeading = $(this).val();
-		var headingObj = storedHeadings.find(function (data) {
+		var selectedHeading = $(this).val(); 
+		var headingObj = storedHeadings.find(function (data) { 
 			return data.heading === selectedHeading;
-		});
-		var subheadings = headingObj ? headingObj.subheadings : [];
-
+		}); 
+		var subheadings = headingObj ? headingObj.subheadings : []; 
+	
 		var subheadingSelect = $('.subheading-form-select');
-		subheadingSelect.empty();
-		subheadingSelect.append('<option selected disabled>Select a subheading</option>');
+		subheadingSelect.empty(); 
+		subheadingSelect.append('<option selected disabled>Select a subheading</option>'); 
+	
 		$.each(subheadings, function (index, subheading) {
 			subheadingSelect.append(`<option value="${subheading}">${subheading}</option>`);
 		});
+	
+		if (subheadings.length > 0) {
+			subheadingSelect.val(subheadings[0]); 
+			$('.subheading-input').val(subheadings[0]); 
+		}
 	});
-
+    var selectHeading = $('.heading-form-select').val();
+    var selectSubHeading = $('.subheading-form-select').val();
+    	
+	
 	$('.form-inputs').on('submit', function (e) {
 		e.preventDefault();
 
@@ -152,7 +160,7 @@ $(document).ready(function () {
 				inputTag = `<label>${labelInput}</label><button type="button" class="${classInput}">${valueInput}</button>`;
 				break;
 			case 'submit':
-				inputTag = `<label>${labelInput}</label><input type="submit" class="${classInput}" value="${valueInput}">`;
+			inputTag = `<label>${labelInput}</label><input type="submit" class="${classInput}" value="${valueInput}">`;
 				break;
 		}
 		var formData = {
@@ -175,7 +183,7 @@ $(document).ready(function () {
 			var subHeadingContainer = $(`.heading-container:has(h2:contains('${selectHeading}')) .subheading-container:has(h3:contains('${selectSubHeading}'))`);
 
 			if (subHeadingContainer.length) {
-				subHeadingContainer.append(`<div class="form-group">${inputTag}</div>`);
+				subHeadingContainer.append(`<section class="form-group">${inputTag}</section>`);
 				console.log("Form element added to the selected subheading.");
 			} else {
 				console.log("Subheading container not found!");
@@ -245,19 +253,16 @@ $(document).ready(function () {
 						break;
 				}
 
-				subHeadingContainer.append(`<div class="form-group">${inputTag}</div>`);
+				subHeadingContainer.append(`<section class="form-group">${inputTag}</section>`);
 			}
 		});
 	}
-	// Add existing headings and subheadings from localStorage to the DOM on page load
 	storedHeadings.forEach(function (data) {
 		appendHeading(data.heading);
 		data.subheadings.forEach(function (subheading) {
 			appendSubheading(data.heading, subheading);
 		});
 	});
-
-	// Render saved form elements
 	renderForms();
 
 	$('.close1').on('click', function () {
@@ -271,3 +276,6 @@ $(document).ready(function () {
 		headingContainer.remove();
 	});
 });
+
+
+
