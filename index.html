@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="first.css" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </head>
 
 <body>
@@ -65,15 +67,30 @@
                 </div>
                 <div class="modal-body">
                     <form class="subheading-form">
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="heading-select" class="col-form-label">Select Heading</label>
-                            <select class="form-select heading-select" aria-label="Select Heading">
+                            <select class="form-select heading-select" aria-label="Select Heading"required>
                                 <option selected disabled>Select a heading</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="subheading-input" class="col-form-label">Subheading</label>
-                            <input type="text" class="form-control subheading-input">
+                            <input type="text" class="form-control subheading-input"required>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="heading-select" class="col-form-label">
+                                Select Heading
+                            </label>
+                            <select class="form-select heading-select" aria-label="Select Heading" required>
+                                <option selected disabled>Select a heading</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="subheading-input" class="col-form-label">
+                                Subheading&nbsp;&nbsp;<span style="color: red; size: 5px;">*</span>
+                            </label>
+                            <input type="text" class="form-control subheading-input" required>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -97,13 +114,13 @@
                     <form class="form-inputs">
                         <div class="mb-3">
                             <label for="heading-select" class="col-form-label">Select Heading</label>
-                            <select class="form-select heading-form-select" aria-label="Select Heading">
+                            <select class="form-select heading-form-select" aria-label="Select Heading"required>
                                 <option selected disabled>Select a heading</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="subheading-select" class="col-form-label">Select Subheading</label>
-                            <select class="form-select subheading-form-select" aria-label="Select Subheading">
+                            <select class="form-select subheading-form-select" aria-label="Select Subheading"required>
                                 <option selected disabled>Select a subheading</option>
                             </select>
                         </div>
@@ -137,28 +154,28 @@
                         </div>
                         <!-- Form Field Attributes -->
                         <div class="mb-3">
-                            <label for="form-label" class="col-form-label">Label</label>
-                            <input type="text" class="form-control form-label" placeholder="Enter label">
+                            <label for="form-label" class="col-form-label">Label&nbsp;&nbsp;<span style="color: red; size: 5px;">*</span></label>
+                            <input type="text" class="form-control form-label" id="form-lable"placeholder="Enter label"required>
                         </div>
                         <div class="mb-3">
                             <label for="form-name" class="col-form-label">Name</label>
                             <input type="text" class="form-control form-name" id="form-name" placeholder="Enter name">
                         </div>
                         <div class="mb-3">
-                            <label for="form-class" class="col-form-label">Class</label>
-                            <input type="text" class="form-control form-class" placeholder="Enter class">
+                            <label for="form-class" class="col-form-label">Class&nbsp;&nbsp;<span style="color: red; size: 5px;">*</span></label>
+                            <input type="text" class="form-control form-class"id="form-class" placeholder="Enter class"required>
                         </div>
                         <div class="mb-3">
                             <label for="form-placeholder" class="col-form-label">Placeholder</label>
-                            <input type="text" class="form-control form-placeholder" placeholder="Enter placeholder">
+                            <input type="text" class="form-control form-placeholder"id="form-placeholder" placeholder="Enter placeholder">
                         </div>
                         <div class="mb-3">
                             <label for="form-value" class="col-form-label">Value</label>
-                            <input type="text" class="form-control form-value" placeholder="Enter value">
+                            <input type="text" class="form-control form-value" id="form-value" placeholder="Enter value">
                         </div>
                         <div class="mb-3">
                             <label for="form-option" class="col-form-label">Option</label>
-                            <input type="text" class="form-control form-option" placeholder="Enter option">
+                            <input type="text" class="form-control form-option" id="form-option"placeholder="Enter option">
                         </div>
                         <!-- Readonly and Disabled Options -->
                         <div class="mb-3">
