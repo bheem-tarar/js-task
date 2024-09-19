@@ -10,4 +10,41 @@
 .form-group input[type="radio"] {
     margin-right: 5px; 
 }
+.subheading-container{
+    margin-left: 70px;;
+}
 
+.close1 {
+    font-size: 24px; 
+    /* padding: 5px;     */
+    width: 30px;     
+    height: 30px;    
+    border-radius: 50%;
+    background-color: aliceblue;
+}
+.close1 span {
+    font-size: 20px; 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close2 {
+    font-size: 24px; 
+    /* padding-bottom: 5px;     */
+    width: 30px;     
+    height: 30px;    
+    border-radius: 50%; 
+    background-color: blue;
+}
+.close2 span {
+    font-size: 20px; 
+    /* padding-bottom:5px; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+label {
+    font-size: 18px; 
+}
