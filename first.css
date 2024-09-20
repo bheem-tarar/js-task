@@ -1,12 +1,12 @@
 .form-group {
     margin-right: 15px; 
+    font-size: 15px;
 }
 
 .form-group label {
     display: i; 
     margin-right: 10px; 
 }
-
 .form-group input[type="radio"] {
     margin-right: 5px; 
 }
@@ -15,7 +15,7 @@
 }
 
 .close1 {
-    font-size: 24px; 
+    /* font-size: 24px;  */
     /* padding: 5px;     */
     width: 30px;     
     height: 30px;    
@@ -23,14 +23,14 @@
     background-color: aliceblue;
 }
 .close1 span {
-    font-size: 20px; 
+    font-size: 20px;
     display:flex;
     justify-content: center;
     align-items: center;
 }
 
 .close2 {
-    font-size: 24px; 
+    /* font-size: 24px;  */
     /* padding-bottom: 5px;     */
     width: 30px;     
     height: 30px;    
@@ -46,7 +46,7 @@
 
 }
 .close3 {
-    font-size: 24px; 
+    /* font-size: 24px;  */
     /* padding-bottom: 5px;     */
     width: 30px;     
     height: 30px;    
@@ -64,3 +64,7 @@
 label {
     font-size: 18px; 
 }
+
+/* .main-content {
+    overflow: visible;  
+} */
